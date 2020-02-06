@@ -1,3 +1,5 @@
+let id = 27826
+
 const db = {
   users: [
       { id: 27824, username: 'tom'},
@@ -11,6 +13,19 @@ const db = {
   ]
 }
 
+class User {
+    constructor(user) {
+        this.user = user;
+    }
+
+    async save() {
+        //const userObj = { id: id++, username: this.username };
+        this.user.id = id++;
+        db.users.push(this.user);
+        return Promise.resolve(this.user);
+    }
+}
+
 function findAllUsers() {
     return Promise.resolve(db.users);
 }
@@ -21,7 +36,7 @@ function findUser(id) {
 }
 
 function findAllComments() {
-    return Promise.resolve(comments);
+    return Promise.resolve(db.comments);
 }
 
 function findComment(id) {
@@ -30,6 +45,7 @@ function findComment(id) {
 }
 
 module.exports = {
+    User,
     findAllUsers,
     findUser,
     findAllComments,
