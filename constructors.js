@@ -60,6 +60,3 @@ StarBucksOrder.prototype.computeCost = function () {
 
 const myOrder = new StarBucksOrder('drip', 'grande', 'no room');
 const anotherOrder = new StarBucksOrder('latte', 'venti', 'extra foam');
-console.log(myOrder.computeCost());
-//console.log(myOrder.__proto__.computeCost());
-console.log(myOrder.computeCost === myOrder.__proto__.computeCost);
